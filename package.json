@@ -1,6 +1,6 @@
 {
   "name": "docsify-slide-presentation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight in-page slides plugin for Docsify using simple markers (no external dependency)",
   "main": "dist/slides.umd.js",
   "module": "dist/slides.umd.js",
