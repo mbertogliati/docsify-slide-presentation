@@ -1,6 +1,6 @@
 {
   "name": "@mbertogliati/docsify-slide-presentation",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Lightweight in-page slides plugin for Docsify using simple markers (no external dependency)",
   "main": "dist/slides.umd.js",
   "module": "dist/slides.umd.js",
@@ -19,14 +19,14 @@
     "markdown",
     "plugin"
   ],
-  "author": "",
+  "author": "mbertogliati",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/mbertogliati/docsify-slide-presentation.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/mbertogliati/docsify-slide-presentation/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/mbertogliati/docsify-slide-presentation#readme"
 }
