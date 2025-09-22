@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docsify Slides Plugin - Demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-slide-presentation/dist/slides.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; }
+    .app-name-link { text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    window.$docsify = {
+      name: 'Slides Demo',
+      repo: '',
+      loadSidebar: false,
+      subMaxLevel: 2,
+      slidesOptions: {
+        height: 380,
+        overflow: 'auto'
+      }
+    };
+  </script>
+
+  <!-- Docsify core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Optional Mermaid -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script> -->
+  <!-- Plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-slide-presentation/dist/slides.js"></script>
+
+  <!-- Demo content -->
+  <script>
+    window.$docsify = window.$docsify || {};
+    window.$docsify.markdown = `
+
+#### Custom Slides (In-house Plugin)
+The slides feature is now powered by our built-in Docsify plugin (no external dependency). Use the same markers to create slide decks inside any page.
+
+<!-- slide:start -->
+# Product Onboarding
+
+Welcome to the new slides component. Use the buttons or arrow keys to navigate.
+
+- Lightweight, no external dependency
+- Works inline in any Markdown page
+- Keyboard support (Left/Right)
+
+<!-- slide:break -->
+
+## Step 1: Install
+Nothing to install — it's already bundled. Just use the markers:
+
+- \u003c!-- slide:start --\u003e to begin
+- \u003c!-- slide:break --\u003e to split slides
+- \u003c!-- slide:end --\u003e to finish
+
+<!-- slide:break -->
+
+## Step 2: Add Content
+You can include lists, images, code, and diagrams.
+
+\`\`\`js
+// Code runs fine inside slides
+console.log('Hello Slides!');
+\`\`\`
+
+<!-- slide:end -->
+
+`;
+  </script>
+</body>
+</html>
