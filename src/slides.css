@@ -1,0 +1,119 @@
+/* Source styles for the Docsify slides plugin */
+/* This is the source of truth; dist/slides.css is the distributable. */
+/* Lightweight Docsify Slides styles */
+.dslides {
+  border: 1px solid var(--theme-border, #e0e0e0);
+  border-radius: 8px;
+  margin: 1rem 0;
+  background: var(--theme-background, #fff);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.dslides-viewport {
+  position: relative;
+  padding: 2.75rem 2.25rem 2rem; /* even more generous padding; avoids cropped headers */
+  /* Fixed height with CSS variable fallback */
+  height: var(--dslides-height, 360px);
+  overflow-x: auto; /* default; JS may override */
+  overflow-y: auto; /* default; JS may override */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  overscroll-behavior: contain; /* contain scroll chaining */
+  scroll-padding-top: 1rem; /* if inner anchors/links scroll, keep a top cushion */
+}
+
+.dslides-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(0);
+  transition: transform 220ms ease-out, opacity 180ms ease-out;
+  padding: 1.75rem 1.25rem; /* extra top padding to prevent big headers from looking cropped */
+  box-sizing: border-box;
+}
+
+.dslides-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Keep the exiting slide above the entering one to avoid any peek */
+.dslides-slide.exiting { z-index: 3; }
+
+/* Fancy slide-in animations (transform only; let .is-active control opacity) */
+/* Neutralize entering prep to avoid any off-screen peek */
+.dslides-slide.enter-from-right { transform: translateX(0); }
+.dslides-slide.enter-from-left  { transform: translateX(0); }
+/* Make exiting slide do a subtle slide while fading out */
+.dslides-slide.exiting-to-left  { transform: translateX(-16px); opacity: 0; visibility: visible; }
+.dslides-slide.exiting-to-right { transform: translateX(16px);  opacity: 0; visibility: visible; }
+
+.dslides-slide > :first-child { margin-top: 0.25rem; }
+
+/* Headings inside slides: make them breathe and avoid visual cropping */
+.dslides-slide h1,
+.dslides-slide h2,
+.dslides-slide h3,
+.dslides-slide h4 {
+  line-height: 1.2;
+}
+.dslides-slide h1:first-child,
+.dslides-slide h2:first-child,
+.dslides-slide h3:first-child,
+.dslides-slide h4:first-child {
+  margin-top: 0.6rem; /* ensure extra clearance at very top when heading is first */
+}
+
+/* Normalize heading top margins inside slides to avoid visual cropping */
+.dslides-slide h1,
+.dslides-slide h2,
+.dslides-slide h3,
+.dslides-slide h4 {
+  margin-top: 0.4rem;
+}
+
+@keyframes dslides-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dslides-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: .75rem 1rem 1rem;
+  border-top: 1px solid var(--theme-border, #eaeaea);
+}
+
+.dslides-controls .dslides-prev,
+.dslides-controls .dslides-next {
+  appearance: none;
+  border: 1px solid var(--theme-border, #e0e0e0);
+  background: var(--theme-button, #f7f7f7);
+  color: inherit;
+  border-radius: 6px;
+  padding: .35rem .6rem;
+  font-size: .95rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.dslides-controls .dslides-prev:hover,
+.dslides-controls .dslides-next:hover {
+  background: var(--theme-button-hover, #efefef);
+}
+
+.dslides-controls .dslides-prev:disabled,
+.dslides-controls .dslides-next:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.dslides-counter {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
