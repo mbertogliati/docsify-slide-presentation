@@ -1,0 +1,20 @@
+src/slides.js
+  s_58dcc2bce9f2e2::t_3e4c454a398ab1 199-200
+  s_58dcc2bce9f2e2::t_aea7000d183be5 44-48,51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "d7332bdfb83eac9af567e138d3e2b204c81692a5",
+  "prompts": {},
+  "sessions": {
+    "s_58dcc2bce9f2e2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01203d27-3628-4dfd-b2cd-bfc1038ab7da",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Mateo Ezequiel Bertogliati <mateoezequiel.bertogliati@mercadolibre.com>"
+    }
+  }
+}
