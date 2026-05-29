@@ -35,7 +35,7 @@
     } catch (e) {}
   }
   function buildSlidesHTML(inner, setId, opts) {
-    var parts = inner.split(/<!--\s*slide:break\s*-->/i);
+    var parts = inner.split(/<!--\s*slide:break\s*-->|<p>\s*\[\[\s*slide:break\s*\]\]\s*<\/p>|\[\[\s*slide:break\s*\]\]/i);
     var total = parts.length;
     var slides = parts.map(function(p){ return '<div class="dslides-slide">' + p.trim() + '</div>'; }).join('');
     return [
@@ -118,7 +118,7 @@
     });
   }
   function replaceSlideBlocks(html, setIdCounter, opts) {
-    return html.replace(/<!--\s*slide:start\s*-->([\s\S]*?)<!--\s*slide:end\s*-->/gi, function(_, inner){
+    return html.replace(/(?:<!--\s*slide:start\s*-->|<p>\s*\[\[\s*slide:start\s*\]\]\s*<\/p>|\[\[\s*slide:start\s*\]\])([\s\S]*?)(?:<!--\s*slide:end\s*-->|<p>\s*\[\[\s*slide:end\s*\]\]\s*<\/p>|\[\[\s*slide:end\s*\]\])/gi, function(_, inner){
       var setId = ++setIdCounter.count; return buildSlidesHTML(inner, setId, opts);
     });
   }
